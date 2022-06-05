@@ -120,12 +120,25 @@ label {
 .fieldset2 {
     display: flex;
     flex-wrap: wrap;
+    justify-content: left;
     flex-direction: row;
+    vertical-align:middle;
 }
 
-
 .formulario-label {
-    width: 200px;
+    display: flex;
+    width: 150px;
+    align-items:center;
+}
+
+.fieldset2 > input {
+    display: flex;
+    flex-direction: row;
+    margin-right: 80px;
+}
+
+textarea {
+    width: 100%;
 }
 
 input {
@@ -139,7 +152,6 @@ input {
 
 #temas-de-interes, #sexo{
     width: 100%;
-    text-align: center;
     margin-bottom: 15px;
 }
 
@@ -189,9 +201,25 @@ input {
 
     /*Main*/
 
+    .formulario-label {
+        display: flex;
+        width: 120px;
+        align-items:center;
+    }
+
+    .fieldset2 > input {
+        display: flex;
+        flex-direction: row;
+        margin-right: 100px;
+    }
+
+    .fieldset > input {
+        width: 90%;
+    }
+
     .column-1 {
         margin: 15px;
-        width: 70%;
+        width: 75%;
         max-width: 750px;
         border-radius: 15px;
         box-shadow: 10px 15px 50px black;
