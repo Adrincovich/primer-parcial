@@ -182,6 +182,18 @@ input {
     color: red;
 }
 
+#errorInteres {
+    position: absolute;
+    top: 250px;
+    color: red;
+}
+
+#errorPais {
+    position: absolute;
+    top: 50px;
+    color: red;
+}
+
 /*Estilos footer*/
 
 .copyright {

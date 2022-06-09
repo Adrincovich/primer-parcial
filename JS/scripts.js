@@ -11,12 +11,12 @@ window.addEventListener("load", ()=> {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
         if (estadoValidaciones.name &&
-            /*estadoValidaciones.surname &&
+            estadoValidaciones.surname &&
             estadoValidaciones.email &&
-            estadoValidaciones.edad &&*/
-            estadoValidaciones.sexo /*&&
+            estadoValidaciones.edad &&
+            estadoValidaciones.sexo &&
             estadoValidaciones.interes &&
-            estadoValidaciones.pais*/){
+            estadoValidaciones.pais){
                 estadoValidaciones.name = false;
                 estadoValidaciones.surname = false;
                 estadoValidaciones.email = false;
@@ -26,18 +26,33 @@ window.addEventListener("load", ()=> {
                 estadoValidaciones.pais = false;
                 alert("Enviado exitosamente");
                 form.reset();
-        }else {
-            alert("No enviado, verificar campos");
-            if (estadoValidaciones.sexo === false){
-            errorSexo.style.display="block";
-            errorSexo.innerHTML="Debe seleccionar un sexo";
-        }else {
-            errorSexo.style.display="none";
-        }
+            }else {
+            if (estadoValidaciones.name == false && name.value == ""){
+                valida(name, "El nombre es requerido");
+            }
+            if (estadoValidaciones.surname == false && surname.value == ""){
+                valida(surname, "El apellido es requerido");
+            }
+            if (estadoValidaciones.email == false && email.value == ""){
+                valida(email, "El e-mail es requerido");
+            }
+            if (estadoValidaciones.edad == false && edad.value == ""){
+                valida(edad, "La edad es requerida");
+            }
+            if (estadoValidaciones.sexo == false){
+                errorSexo.style.display="block";
+                errorSexo.innerHTML="Debe seleccionar un sexo";
+            }
+            if (estadoValidaciones.interes == false){
+                errorInteres.style.display="block";
+                errorInteres.innerHTML="Debe seleccionar un interes";
+            }
+            if (estadoValidaciones.pais == false){
+                errorPais.style.display="block";
+                errorPais.innerHTML="Debe seleccionar un pais";
+            }
         }
     });
-
-    /**/
 
     const estadoValidaciones = {
         name: false,
@@ -130,6 +145,7 @@ window.addEventListener("load", ()=> {
         })
     })
 
+    let errorInteres = document.getElementById("errorInteres");
     function validateTema(e) {
         let cantCheckTema = 0;
             for (let i = 0; i < interes.length; i++) {
@@ -138,22 +154,24 @@ window.addEventListener("load", ()=> {
                 };
             }
             if (cantCheckTema == interes.length) {
-                console.log("selecciones un tema")
+                estadoValidaciones.interes = false;
             }else{
-                console.log("temas seleccionado");
+                estadoValidaciones.interes = true;
+                errorInteres.style.display="none";
             }
         }
 
     interes.forEach((input) =>{
-        input.addEventListener("click", validateTema)
+        input.addEventListener("click", validateTema);
     });
 
     pais.addEventListener("click", (e) =>{
 
         if(e.target.value == "Argentina" || e.target.value == "Chile" || e.target.value == "Brasil" || e.target.value == "Uruguay"){
-            console.log("true");
+            estadoValidaciones.pais = true;
+            errorPais.style.display="none";
         }else{
-            console.log("false")
+            estadoValidaciones.pais = false;
         }
     })
 
