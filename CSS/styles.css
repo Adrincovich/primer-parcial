@@ -105,7 +105,7 @@ fieldset {
     margin-left: 0px;
 }
 
-.fieldset.falla p {
+.fieldset.falla p{
     display: block;
     position: absolute;
     top: 88px;
@@ -118,6 +118,7 @@ label {
 }
 
 .fieldset2 {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -148,7 +149,7 @@ input {
 }
 
 #pais {
-    max-width: 100px;
+    max-width: 150px;
 }
 
 #interes, #sexo{
@@ -173,6 +174,12 @@ input {
     padding: 0%;
     margin: 5px;
     border: 3px solid rgb(185, 197, 197);
+}
+
+#errorSexo {
+    position: absolute;
+    top: 165px;
+    color: red;
 }
 
 /*Estilos footer*/

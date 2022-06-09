@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/reset.css">
     <link rel="stylesheet" href="./CSS/styles.css">
+    <script src="./JS/scripts.js"></script>
     <title>Parcial</title>
 </head>
 <body>
@@ -54,7 +55,7 @@
                 <input id="sexo2" class="formulario-sexo" type="radio" name="sexo">
                 <label class="formulario-label"  for="sexo3">Otro</label>
                 <input id="sexo3" class="formulario-sexo" type="radio" name="sexo">
-                <p></p>
+                <p id="errorSexo"></p>
             </fieldset>
             <fieldset class="fieldset2" id ="FielsetTemas">
                 <label id="interes">Temas de Interes</label>
@@ -73,7 +74,7 @@
             <fieldset class="fieldset">
                 <label for="pais">Pais</label>
                 <select name="pais" id="pais">
-                    <option>Seleccionar País</option>
+                    <option>Seleccionar...</option>
                     <option value="Argentina">Argentina</option>
                     <option value="Chile">Chile</option>
                     <option value="Brasil">Brasil</option>
@@ -95,6 +96,5 @@
         <div class="copyright">Copyright 2022 Primer Parcial UAI LPPA | Todos los derechos reservados</div>
         <div class="creator"></div>
     </footer>
-    <script src="./JS/scripts.js"></script>
 </body>
 </html>

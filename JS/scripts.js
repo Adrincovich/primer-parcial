@@ -11,10 +11,10 @@ window.addEventListener("load", ()=> {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
         if (estadoValidaciones.name &&
-            estadoValidaciones.surname &&
+            /*estadoValidaciones.surname &&
             estadoValidaciones.email &&
-            estadoValidaciones.edad /*&&
-            estadoValidaciones.sexo &&
+            estadoValidaciones.edad &&*/
+            estadoValidaciones.sexo /*&&
             estadoValidaciones.interes &&
             estadoValidaciones.pais*/){
                 estadoValidaciones.name = false;
@@ -28,15 +28,23 @@ window.addEventListener("load", ()=> {
                 form.reset();
         }else {
             alert("No enviado, verificar campos");
+            if (estadoValidaciones.sexo === false){
+            errorSexo.style.display="block";
+            errorSexo.innerHTML="Debe seleccionar un sexo";
+        }else {
+            errorSexo.style.display="none";
+        }
         }
     });
+
+    /**/
 
     const estadoValidaciones = {
         name: false,
         surname: false,
         email: false,
         edad: false,
-        sexo1: false,
+        sexo: false,
         interes: false,
         pais: false,
     }
@@ -109,6 +117,46 @@ window.addEventListener("load", ()=> {
         valida(edad, "");
     })
 
+    let errorSexo = document.getElementById("errorSexo");
+    sexo.forEach((input)=>{
+        input.addEventListener("click", (e) =>{
+            if(e.target.checked){
+                estadoValidaciones.sexo = true;
+                errorSexo.style.display="none";
+            }else{
+                estadoValidaciones.sexo = false;
+
+            }
+        })
+    })
+
+    function validateTema(e) {
+        let cantCheckTema = 0;
+            for (let i = 0; i < interes.length; i++) {
+                if (!interes[i].checked){
+                    cantCheckTema= cantCheckTema + 1;
+                };
+            }
+            if (cantCheckTema == interes.length) {
+                console.log("selecciones un tema")
+            }else{
+                console.log("temas seleccionado");
+            }
+        }
+
+    interes.forEach((input) =>{
+        input.addEventListener("click", validateTema)
+    });
+
+    pais.addEventListener("click", (e) =>{
+
+        if(e.target.value == "Argentina" || e.target.value == "Chile" || e.target.value == "Brasil" || e.target.value == "Uruguay"){
+            console.log("true");
+        }else{
+            console.log("false")
+        }
+    })
+
     const valida = (input, msje) => {
         const formControl = input.parentElement;
         const aviso = formControl.querySelector("p");
@@ -125,43 +173,3 @@ window.addEventListener("load", ()=> {
 })
 
 //////////////////////////////////////////////////////////////////////////////////////////
-
-
-sexo.forEach((input)=>{
-    input.addEventListener('click', (e) =>{
-        if(e.target.checked){
-            console.log('true');
-        }else{
-            console.log('false')
-        }
-    })
-})
-
-
-function validateTema(e) {
-    let cantCheckTema = 0;
-        for (let i = 0; i < interes.length; i++) {
-            if (!interes[i].checked){
-                cantCheckTema= cantCheckTema + 1;
-            };
-        }
-        if (cantCheckTema == interes.length) {
-            console.log('selecciones un tema')
-        }else{
-            console.log('temas seleccionado');
-        }
-    }
-
-interes.forEach((input) =>{
-    input.addEventListener('click', validateTema)
-});
-
-
-pais.addEventListener('click', (e) =>{
-
-    if(e.target.value == 'Argentina' || e.target.value == 'Chile' || e.target.value == 'Brasil' || e.target.value == 'Uruguay'){
-        console.log('true');
-    }else{
-        console.log('false')
-    }
-})
