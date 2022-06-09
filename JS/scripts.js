@@ -4,15 +4,9 @@ window.addEventListener("load", ()=> {
     const surname = document.getElementById("surname");
     const email = document.getElementById("email");
     const edad = document.getElementById("edad");
-
-    const sexo = ["sexo1", "sexo2", "sexo3"];
-    const sexo1 = document.getElementById("sexo1");
-    const sexo2 = document.getElementById("sexo2");
-    const sexo3 = document.getElementById("sexo3");
-
-    const interes = document.getElementsByClassName("formulario-interes");
+    const sexo = document.querySelectorAll("#FielsetSexo .formulario-sexo");
+    const interes = document.querySelectorAll("#FielsetTemas input[type=checkbox]");
     const pais = document.getElementById("pais");
-
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -127,5 +121,47 @@ window.addEventListener("load", ()=> {
 
     const validaEmail = (email) => {
         return /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email);
+    }
+})
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+sexo.forEach((input)=>{
+    input.addEventListener('click', (e) =>{
+        if(e.target.checked){
+            console.log('true');
+        }else{
+            console.log('false')
+        }
+    })
+})
+
+
+function validateTema(e) {
+    let cantCheckTema = 0;
+        for (let i = 0; i < interes.length; i++) {
+            if (!interes[i].checked){
+                cantCheckTema= cantCheckTema + 1;
+            };
+        }
+        if (cantCheckTema == interes.length) {
+            console.log('selecciones un tema')
+        }else{
+            console.log('temas seleccionado');
+        }
+    }
+
+interes.forEach((input) =>{
+    input.addEventListener('click', validateTema)
+});
+
+
+pais.addEventListener('click', (e) =>{
+
+    if(e.target.value == 'Argentina' || e.target.value == 'Chile' || e.target.value == 'Brasil' || e.target.value == 'Uruguay'){
+        console.log('true');
+    }else{
+        console.log('false')
     }
 })
