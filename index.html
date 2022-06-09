@@ -72,8 +72,8 @@
                 <p id="errorInteres"></p>
             </fieldset>
             <fieldset class="fieldset">
-                <label for="pais">Pais</label>
-                <select name="pais" id="pais">
+                <label class="formulario-pais" for="pais">Pais</label>
+                <select class="formulario-pais" name="pais" id="pais">
                     <option value="Seleccionar">Seleccionar...</option>
                     <option value="Argentina">Argentina</option>
                     <option value="Chile">Chile</option>
@@ -88,10 +88,24 @@
                 <p></p>
             </fieldset>
             <fieldset class="fieldset">
-                <input id="submit" class="enviar-form" type="submit" value="Enviar">
+                <input id="submit" class="enviar-form btn btn-primary" type="submit" value="Enviar">
             </fieldset>
         </form>
     </main>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>MODAL</h2>
+            </div>
+            <div class="modal-body">
+                <p>El Registro finalizo Correctamente!</p>
+            </div>
+            <div class="modal-footer">
+                <h3>Muchas gracias</h3>
+            </div>
+        </div>
+    </div>
     <footer>
         <div class="copyright">Copyright 2022 Primer Parcial UAI LPPA | Todos los derechos reservados</div>
         <div class="creator"></div>
